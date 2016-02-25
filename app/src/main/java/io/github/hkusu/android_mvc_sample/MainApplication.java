@@ -15,7 +15,7 @@ public class MainApplication extends Application {
         super.onCreate();
 
         // ModelManager に各モデルの参照を登録
-        ModeLocator.register(ModeLocator.Tag.QIITA_ITEM, new QiitaItemModel());
+        ModeLocator.register(QiitaItemModel.class);
 
         // FragmentManager に各Fragmentのクラス名を登録(ここではインスタンス化しない)
         FragmentRouter.register(FragmentRouter.Tag.LIST, ListFragment.class);

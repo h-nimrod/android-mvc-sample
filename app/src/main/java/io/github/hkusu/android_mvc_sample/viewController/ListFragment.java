@@ -66,7 +66,7 @@ public class ListFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        ((QiitaItemModel) ModeLocator.get(ModeLocator.Tag.QIITA_ITEM)).load();
+        ModeLocator.get(QiitaItemModel.class).load();
         updateView();
     }
 
@@ -108,9 +108,9 @@ public class ListFragment extends Fragment {
     // Viewの表示を更新するプライベートメソッド
     private void updateView() {
         // ここでは通信が伴うような時間がかかる処理はしない。Model上の変数をアクセスするに留める
-        mItemCountTextView.setText(((QiitaItemModel) ModeLocator.get(ModeLocator.Tag.QIITA_ITEM)).getItemCount() + " 件");
+        mItemCountTextView.setText(ModeLocator.get(QiitaItemModel.class).getItemCount() + " 件");
         mQiitaItemList.clear();
-        mQiitaItemList.addAll(((QiitaItemModel) ModeLocator.get(ModeLocator.Tag.QIITA_ITEM)).getItemList());
+        mQiitaItemList.addAll(ModeLocator.get(QiitaItemModel.class).getItemList());
         mQiitaItemListAdapter.notifyDataSetChanged();
     }
 }
